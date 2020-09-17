@@ -8,14 +8,9 @@ class InstructionListResource(Resource):
 
     def get(self):
 
-        data = []
+        data = [ instruction.data() for instruction in Instruction.get_all_instructions()]
 
-        for instruction in instruction_list:
-            if instruction.is_publish:
-                data.append(instruction.data)
-
-        return {'data': data}, HTTPStatus.OK
-
+        return {'data': str(data)}, HTTPStatus.OK
 
     def post(self):
         data = request.get_json()
@@ -28,17 +23,15 @@ class InstructionListResource(Resource):
             cost=data["cost"],
             duration=data["duration"]
         )
+        instruction.save()
 
-        instruction_list.append(instruction)
-
-        return instruction.data, HTTPStatus.CREATED
+        return  HTTPStatus.CREATED
 
 
 class InstructionResource(Resource):
 
     def get(self, instruction_id):
-        instruction = next((instruction for instruction in instruction_list if instruction.id ==
-                            instruction_id and instruction.is_publish == True), None)
+        instruction = Instruction.get_by_id(instruction_id)
 
         if instruction is None:
             return {'Message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
@@ -69,4 +62,3 @@ class InstructionPublic(Resource):
         instruction.is_publish = False
 
         return {}, HTTPStatus.NO_CONTENT
-
