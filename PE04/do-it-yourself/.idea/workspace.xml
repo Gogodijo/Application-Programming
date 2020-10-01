@@ -20,45 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e391516-effb-4985-adc5-48a8b43780a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extensions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/README" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/alembic.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/script.py.mako" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/instructions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/do-it-yourself.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/do-it-yourself/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/hello-my-name.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE01/hello-my-name/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/do-it-yourself.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/models/instructions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PE02/do-it-yourself/resources/instruction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/extensions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

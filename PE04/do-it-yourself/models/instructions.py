@@ -1,17 +1,6 @@
 from extensions import db
 
 
-instruction_list = []
-
-
-def get_last_id():
-    if instruction_list:
-        last_instruction = instruction_list[-1]
-    else:
-        return 1
-    return last_instruction.id + 1
-
-
 class Instruction(db.Model):
     __tablename__ = 'instruction'
 
@@ -45,7 +34,7 @@ class Instruction(db.Model):
         return cls.query.filter_by(id=id).first()
 
     @classmethod
-    def get_all_instructions(cls):
+    def get_all_published(cls):
         return cls.query.filter_by(is_publish = True).all()
 
     def save(self):
