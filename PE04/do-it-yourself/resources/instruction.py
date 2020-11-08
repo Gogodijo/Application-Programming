@@ -10,7 +10,7 @@ class InstructionListResource(Resource):
 
     def get(self):
 
-        data = [ instruction.data() for instruction in Instruction.get_all_published()]
+        data = [instruction.data() for instruction in Instruction.get_all_published()]
 
         return {'data': str(data)}, HTTPStatus.OK
 
@@ -29,7 +29,7 @@ class InstructionListResource(Resource):
         )
         instruction.save()
 
-        return  HTTPStatus.CREATED
+        return  instruction.data, HTTPStatus.CREATED
 
 
 class InstructionResource(Resource):
@@ -37,27 +37,21 @@ class InstructionResource(Resource):
     @jwt_optional
     def get(self, instruction_id):
         instruction = Instruction.get_by_id(instruction_id)
-
         if instruction is None:
             return {'Message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
 
         current_user = get_jwt_identity()
 
         if instruction.is_publish == False and instruction.user_id != current_user:
-            return {'message': 'Access is not allower'}, HTTPStatus.FORBIDDEN
+            return {'message': 'Access is not allowed'}, HTTPStatus.FORBIDDEN
 
-        return instruction.data(), HTTPStatus.OK
-
-
-
-class InstructionPublic(Resource):
+        return instruction.data, HTTPStatus.OK
 
     @jwt_required
     def put(self, instruction_id):
         
         data = request.get_json()
-
-        instruction = Instruction.get_by_id(instruction_id=instruction_id)
+        instruction = Instruction.get_by_id(id=instruction_id)
 
         if instruction is None:
             return {'message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
@@ -72,17 +66,67 @@ class InstructionPublic(Resource):
         instruction.steps = data["steps"]
         instruction.tools = data["tools"]
         instruction.cost = data["cost"]
-        
+        instruction.duration = data["duration"]
+        instruction.save()
+        return instruction.data, HTTPStatus.NO_CONTENT
+
+    @jwt_required
+    def delete(self, instruction_id):
+    
+        instruction = Instruction.get_by_id(id=instruction_id)
+
+        if instruction is None:
+            return {'message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
+
+        current_user = get_jwt_identity()
+
+        if current_user != instruction.user_id:
+            return {'message': 'Access is not allowed'}, HTTPStatus.FORBIDDEN
+
+        instruction.delete()
 
         return {}, HTTPStatus.NO_CONTENT
 
-    def delete(self, instruction_id):
-        instruction = next((instruction for instruction in instruction_list if instruction.id ==
-                            instruction_id), None)
+
+
+class InstructionPublic(Resource):
+
+    @jwt_required
+    def put(self, instruction_id):
+        
+        data = request.get_json()
+
+        instruction = Instruction.get_by_id(id=instruction_id)
 
         if instruction is None:
-            return {'Message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
+            return {'message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
+
+        current_user = get_jwt_identity()
+
+        if current_user != instruction.user_id:
+            return {'message': 'Access is not allowed'}, HTTPStatus.FORBIDDEN
+
+        instruction.is_publish = True
+        instruction.save()
+
+        return {}, HTTPStatus.NO_CONTENT
+
+    
+    @jwt_required
+    def delete(self, instruction_id):
+        data = request.get_json()
+
+        instruction = Instruction.get_by_id(id=instruction_id)
+
+        if instruction is None:
+            return {'message': 'Instruction not found'}, HTTPStatus.NOT_FOUND
+
+        current_user = get_jwt_identity()
+
+        if current_user != instruction.user_id:
+            return {'message': 'Access is not allowed'}, HTTPStatus.FORBIDDEN
 
         instruction.is_publish = False
+        instruction.save()
 
         return {}, HTTPStatus.NO_CONTENT

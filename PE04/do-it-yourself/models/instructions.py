@@ -17,6 +17,7 @@ class Instruction(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
+    @property
     def data(self):
         return{
             'id' : self.id,

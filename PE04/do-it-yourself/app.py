@@ -1,4 +1,4 @@
-from resources.token import TokenResource
+from resources.token import RefreshResource, TokenResource, RevokeResource, black_list
 from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api
@@ -23,6 +23,11 @@ def register_extensions(app):
     db.init_app(app)
     migrate = Migrate(app,db)
     jwt.init_app(app)
+    @jwt.token_in_blacklist_loader
+    def check_if_token_in_blacklist(decrypted_token):
+        jti = decrypted_token['jti']
+        print(jti)
+        return jti in black_list
 
 
 def register_resources(app):
@@ -35,6 +40,8 @@ def register_resources(app):
     api.add_resource(InstructionResource, '/instructions/<int:instruction_id>')
     api.add_resource(InstructionPublic, '/instructions/<int:instruction_id>/publish')
     api.add_resource(MeResource, '/me')
+    api.add_resource(RefreshResource, '/refresh')
+    api.add_resource(RevokeResource, '/revoke')
 
 
 if __name__ == '__main__':
